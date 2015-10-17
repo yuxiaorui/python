@@ -31,9 +31,14 @@ RUN set -x \
 		libreadline-dev \
 		libsqlite3-dev \
 		libssl-dev \
+		libxml2-dev \
+		libxslt-dev \
+		libffi-dev \
+		libmysqld-dev \
 		make \
 		xz-utils \
 		zlib1g-dev \
+		supervisor \
 	' \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
 	&& mkdir -p /usr/src/python \
@@ -53,10 +58,12 @@ RUN set -x \
 		\( -type d -a -name test -o -name tests \) \
 		-o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
 		-exec rm -rf '{}' + \
-	&& apt-get purge -y --auto-remove $buildDeps \
 	&& rm -rf /usr/src/python
 
 # install "virtualenv", since the vast majority of users of this image will want it
 RUN pip install --no-cache-dir virtualenv
+RUN pip install lxml && pip install pyopenssl && pip install Scrapy && pip install twisted && pip install mysql && pip install 'MySQL-python<=1.2.3' && pip install service_identity && pip install leancloud-sdk && pip install Celery && pip install sqlalchemy
 
-CMD ["python2"]
+VOLUME ["/opt/python/app"]
+WORKDIR /opt/python/app
+ENTRYPOINT ["python2"]
