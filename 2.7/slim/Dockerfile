@@ -62,7 +62,7 @@ RUN set -x \
 
 # install "virtualenv", since the vast majority of users of this image will want it
 RUN pip install --no-cache-dir virtualenv
-RUN pip install lxml && pip install pyopenssl && pip install Scrapy && pip install twisted && pip install mysql && pip install 'MySQL-python<=1.2.3' && pip install service_identity && pip install leancloud-sdk && pip install Celery && pip install sqlalchemy
+RUN pip install lxml && pip install pyopenssl && pip install numpy && pip install mysql && pip install 'MySQL-python<=1.2.3' && pip install sqlalchemy && pip install pandas && pip install xlsxwriter && pip install Scrapy && pip install twisted && pip install leancloud-sdk && pip install Celery
 
 VOLUME ["/opt/python/app"]
 WORKDIR /opt/python/app
