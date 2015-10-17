@@ -25,7 +25,7 @@ RUN set -x \
 	&& buildDeps=' \
 		curl \
 		gcc \
-		gcc-c++ \
+		g++ \
 		libbz2-dev \
 		libc6-dev \
 		libncurses-dev \
