@@ -24,22 +24,22 @@ ENV PYTHON_PIP_VERSION 7.1.2
 RUN set -x \
 	&& buildDeps=' \
 		curl \
-		gcc \
 		g++ \
+		gcc \
 		libbz2-dev \
 		libc6-dev \
+		libffi-dev \
+		libmysqld-dev \
 		libncurses-dev \
 		libreadline-dev \
 		libsqlite3-dev \
 		libssl-dev \
 		libxml2-dev \
 		libxslt-dev \
-		libffi-dev \
-		libmysqld-dev \
 		make \
+		supervisor \
 		xz-utils \
 		zlib1g-dev \
-		supervisor \
 	' \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
 	&& mkdir -p /usr/src/python \
@@ -63,7 +63,19 @@ RUN set -x \
 
 # install "virtualenv", since the vast majority of users of this image will want it
 RUN pip install --no-cache-dir virtualenv
-RUN pip install lxml && pip install pyopenssl && pip install numpy && pip install mysql && pip install 'MySQL-python<=1.2.3' && pip install sqlalchemy && pip install pandas && pip install xlsxwriter && pip install Scrapy && pip install twisted && pip install leancloud-sdk && pip install Celery
+RUN pip install 'MySQL-python<=1.2.3' \
+ && pip install Celery \
+ && pip install leancloud-sdk \
+ && pip install mysql \
+ && pip install numexpr \
+ && pip install numpy \
+ && pip install pandas \
+ && pip install pyopenssl \
+ && pip install Scrapy \
+ && pip install sqlalchemy \
+ && pip install twisted \
+ && pip install xlsxwriter \
+ && pip install lxml
 
 VOLUME ["/opt/python/app"]
 WORKDIR /opt/python/app
