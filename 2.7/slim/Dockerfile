@@ -64,20 +64,20 @@ RUN set -x \
 # install "virtualenv", since the vast majority of users of this image will want it
 RUN pip install --no-cache-dir virtualenv
 RUN pip install 'MySQL-python<=1.2.3' \
- && pip install Celery \
- && pip install leancloud-sdk \
- && pip install mysql \
- && pip install numexpr \
- && pip install numpy \
- && pip install pandas \
- && pip install pyopenssl \
- && pip install SciPy \
- && pip install scikit-learn \
- && pip install Scrapy \
- && pip install sqlalchemy \
- && pip install twisted \
- && pip install xlsxwriter \
- && pip install lxml
+	&& pip install Celery \
+	&& pip install leancloud-sdk \
+	&& pip install mysql \
+	&& pip install numexpr \
+	&& pip install numpy \
+	&& pip install pandas \
+	&& pip install pyopenssl \
+	&& pip install SciPy \
+	&& pip install scikit-learn \
+	&& pip install Scrapy \
+	&& pip install sqlalchemy \
+	&& pip install twisted \
+	&& pip install xlsxwriter \
+	&& pip install lxml
 
 VOLUME ["/opt/python/app"]
 WORKDIR /opt/python/app
