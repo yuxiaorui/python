@@ -71,6 +71,7 @@ RUN pip install 'MySQL-python<=1.2.3' \
  && pip install numpy \
  && pip install pandas \
  && pip install pyopenssl \
+ && pip install SciPy \
  && pip install scikit-learn \
  && pip install Scrapy \
  && pip install sqlalchemy \
