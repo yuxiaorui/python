@@ -36,6 +36,10 @@ RUN set -x \
 		libssl-dev \
 		libxml2-dev \
 		libxslt-dev \
+		libblas-dev \
+		liblapack-dev \
+		libatlas-base-dev \
+		gfortran \
 		make \
 		supervisor \
 		xz-utils \
@@ -71,9 +75,12 @@ RUN pip install 'MySQL-python<=1.2.3' \
 	&& pip install numpy \
 	&& pip install pandas \
 	&& pip install pyopenssl \
+	&& pip install pymongo \
+	&& pip install redis \
 	&& pip install SciPy \
 	&& pip install scikit-learn \
 	&& pip install Scrapy \
+	&& pip install scrapy_redis \
 	&& pip install sqlalchemy \
 	&& pip install twisted \
 	&& pip install xlsxwriter \
