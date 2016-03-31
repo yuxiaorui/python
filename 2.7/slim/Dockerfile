@@ -70,6 +70,7 @@ RUN pip install --no-cache-dir virtualenv
 RUN pip install 'MySQL-python<=1.2.3' \
 	&& pip install Celery \
 	&& pip install leancloud-sdk \
+	&& pip install qingcloud-sdk \
 	&& pip install mysql \
 	&& pip install numexpr \
 	&& pip install numpy \
