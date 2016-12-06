@@ -49,4 +49,4 @@ RUN pip install Celery==3.1.23 \
 
 VOLUME ["/opt/python/app"]
 WORKDIR /opt/python/app
-ENTRYPOINT ["python2"]
+CMD ["python2"]
